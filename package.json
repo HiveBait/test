@@ -9,6 +9,6 @@
   "dependencies": {
     "lodash": "4.17.20",       // CVE-2021-23337 (Prototype pollution)
     "minimist": "1.2.0",       // CVE-2020-7598 (Prototype pollution)
-    "handlebars": "4.1.0"      // CVE-2019-19919 (Arbitrary code execution)
+    "handlebars": "4.1.0"      // CVE-2019-19919 (Arbitrary code execution)d
   }
 }
