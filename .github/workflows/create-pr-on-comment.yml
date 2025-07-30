@@ -1,0 +1,36 @@
+name: Create PR on PR Comment
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create-pr:
+    if: github.event.issue.pull_request && contains(github.event.comment.body, '/create-pr')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create new branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b follow-up-${{ github.run_id }}
+          echo "# Follow-up" > followup.md
+          git add followup.md
+          git commit -m "Add follow-up file"
+          git push origin follow-up-${{ github.run_id }}
+
+      - name: Open PR
+        run: |
+          gh pr create \
+            --title "Follow-up PR" \
+            --body "Auto-created in response to /create-pr comment." \
+            --base main \
+            --head follow-up-${{ github.run_id }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
