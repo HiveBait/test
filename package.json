@@ -10,7 +10,7 @@
     "constructs": "^10.0.0"
   },
   "devDependencies": {
-    "@go-to-k/cdkd": "0.162.1",
+    "@go-to-k/cdkd": "0.162.2",
     "typescript": "^5.0.0"
   }
 }
