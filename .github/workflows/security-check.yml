@@ -7,4 +7,4 @@ on:
 jobs:
   call-security-hub:
     # Reference your private hub repository and the specific file
-    uses: HiveBait/momo/enterprise-security-governance/.github/workflows/central-security-gate.yml@main
+    uses: HiveBait/momo/enterprise-security-governance/.github/workflows/central-security-gate.yml@master
