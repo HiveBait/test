@@ -1,0 +1,21 @@
+{
+  "name": "@h2oai/makersaurus",
+  "version": "0.11.14",
+  "private": false,
+  "bin": "./src/bin.js",
+  "module": "./src/index.js",
+  "files": [
+    "src",
+    "src/starter/.gitignore"
+  ],
+  "scripts": {
+    "build-docs": "./scripts/build-docs-from-local-app.sh"
+  },
+  "repository": "https://github.com/h2oai/makersaurus",
+  "dependencies": {
+    "commander": "^9.4.1",
+    "handlebars": "^4.7.7",
+    "sync-directory": "^5.1.9",
+    "yup": "^0.32.11"
+  }
+}
