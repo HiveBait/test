@@ -1,10 +1,20 @@
-name: CI Security Gate
-
+name: CI Security Gate                                                                                                                  
+                                                                                                                                      
 on:
   pull_request:
     branches: [ main ]
+    paths:
+      - 'package-lock.json'
+      - 'pnpm-lock.yaml'
+      - 'yarn.lock'
+      - 'uv.lock'                                                                                                                       
+      - 'requirements.txt'
+      - 'go.sum'                                                                                                                        
+      - 'go.mod'                                                                                                                      
 
 jobs:
   call-security-hub:
-    # Reference your private hub repository and the specific file
     uses: HiveBait/momo/.github/workflows/central-security-gate.yml@master
+    with:                                                                                                                               
+      repository: ${{ github.repository }}
+      ref: ${{ github.head_ref }}                                                                                                       
