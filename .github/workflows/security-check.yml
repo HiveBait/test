@@ -1,0 +1,10 @@
+name: CI Security Gate
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  call-security-hub:
+    # Reference your private hub repository and the specific file
+    uses: HiveBait/momo/enterprise-security-governance/.github/workflows/central-security-gate.yml@main
