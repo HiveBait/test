@@ -7,34 +7,33 @@
 #
 # Source repository: https://github.com/actions/dependency-review-action
 # Public documentation: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement
-name: 'Dependency review'
+name: 'Dependency Review'
+
 on:
   pull_request:
     branches: [ "main" ]
 
-# If using a dependency submission action in this workflow this permission will need to be set to:
-#
-# permissions:
-#   contents: write
-#
-# https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
 permissions:
   contents: read
-  # Write permissions for pull-requests are required for using the `comment-summary-in-pr` option, comment out if you aren't using this option
-  pull-requests: write
+  pull-requests: write  # Required for comment-summary-in-pr option
 
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout repository'
+      - name: 'Checkout Repository'
         uses: actions/checkout@v4
+
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v4
-        # Commonly enabled options, see https://github.com/actions/dependency-review-action#configuration-options for all available options.
         with:
+          # Post summary comment on PR
           comment-summary-in-pr: always
+
+          # Fail on high severity vulnerabilities (critical/high CVEs)
           fail-on-severity: high
-        #   fail-on-severity: moderate
-        #   deny-licenses: GPL-1.0-or-later, LGPL-2.0-or-later
-        #   retry-on-snapshot-warnings: true
+
+          # Additional recommended options (uncomment to enable):
+          # fail-on-severity: moderate  # Stricter: also fail on moderate severity
+          # deny-licenses: GPL-1.0-or-later, LGPL-2.0-or-later  # Block copyleft licenses
+          # retry-on-snapshot-warnings: true  # Retry if dependency graph not ready
