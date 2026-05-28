@@ -1,4 +1,4 @@
-flask==0.12         # CVE-2018-1000656 (Denial of Service)
-requests==2.19.0    # CVE-2018-18074 (Redirect vulnerability)
-urllib3==1.23       # Compatible with requests 2.19.0 (was 1.24.1)
-pyyaml==4.1         # CVE-2017-18342 (arbitrary code execution)
+flask==2.0.0        # Old version from 2021 (latest is 3.x)
+requests==2.25.0    # Old version from 2020 (latest is 2.34.x)
+urllib3==1.26.5     # Old version from 2021
+pyyaml==5.4.1       # Old version from 2021 (latest is 6.0.3)
