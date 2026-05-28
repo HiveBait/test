@@ -1,4 +1,4 @@
 flask==2.0.0        # Old version from 2021 (latest is 3.x)
-requests==2.25.0    # Old version from 2020 (latest is 2.34.x)
+requests==2.34.2    # Old version from 2020 (latest is 2.34.x)
 urllib3==1.26.5     # Old version from 2021
 pyyaml==5.4.1       # Old version from 2021 (latest is 6.0.3)
