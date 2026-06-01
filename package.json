@@ -8,9 +8,5 @@
   "dependencies": {
     "aws-cdk-lib": "^2.0.0",
     "constructs": "^10.0.0"
-  },
-  "devDependencies": {
-    "@go-to-k/cdkd": "0.162.2",
-    "typescript": "^5.0.0"
   }
 }
